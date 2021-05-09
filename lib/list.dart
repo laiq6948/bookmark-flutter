@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class MyList1 extends StatelessWidget {
   @override
@@ -59,6 +60,24 @@ class MyList2 extends StatelessWidget {
           final item = items[index];
           return ListTile(
             title: Text(item),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                return Scaffold(
+                  appBar: AppBar(
+                    title: Text('WebView'),
+                  ),
+                  body: WebView(
+                    // onPageFinished: (url) {
+                    //   setState(() {
+                    //     _isLoadingWebPage = false;
+                    //   });
+                    // },
+                    initialUrl: 'https://google.com',
+                    javascriptMode: JavascriptMode.unrestricted,
+                  ),
+                );
+              }));
+            },
           );
         },
       );

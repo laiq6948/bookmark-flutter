@@ -3,9 +3,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:my_bookmark/list.dart';
 import 'package:my_bookmark/providers.dart';
+import 'package:my_bookmark/qr_code.dart';
 
 class Home extends HookWidget {
-  final items = List.generate(10, (index) => 'Item: $index');
+  // final items = List.generate(10, (index) => 'Item: $index');
   final _pageController = PageController();
 
   @override
@@ -26,7 +27,8 @@ class Home extends HookWidget {
         controller: _pageController,
         onPageChanged: hsp.onPageChanged,
         children: [
-          MyList1(),
+          // MyList1(),
+          QrCodePage(),
           MyList2(),
           MyList3(),
         ],
