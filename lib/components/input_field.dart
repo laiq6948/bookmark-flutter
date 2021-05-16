@@ -17,9 +17,11 @@ class RoundedInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
+      child: TextFormField(
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
+        validator: _validateEmail,
+        // autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           icon: Icon(
             icon,
@@ -30,5 +32,16 @@ class RoundedInputField extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _validateEmail(String email) {
+    const pattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
+    final regExp = RegExp(pattern);
+
+    if (!regExp.hasMatch(email)) {
+      return 'Please enter a valid email';
+    } else {
+      return null;
+    }
   }
 }
