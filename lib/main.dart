@@ -6,12 +6,12 @@ import 'package:my_bookmark/splash.dart';
 
 void main() {
   // Run My Bookmark App
-  // runApp(MyApp());
+  runApp(MyApp());
 
   // Run Riverpod + Hooks App
-  runApp(ProviderScope(
-    child: RiverpodHooksApp(),
-  ));
+  // runApp(ProviderScope(
+  //   child: RiverpodHooksApp(),
+  // ));
 }
 
 // My Bookmark App
